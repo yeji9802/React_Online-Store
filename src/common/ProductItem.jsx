@@ -1,14 +1,17 @@
 import React from "react";
 
 const ProductItem = (props) => {
-  const { category, items } = props;
+  const { category, items, inStockOnly } = props;
+ 
+  const filterInStockOnly = inStockOnly ? items.filter((itme) => itme.stocked === inStockOnly) : items;
+  console.log(filterInStockOnly);
 
   return (
     <>
       <tr>
         <td>{category}</td>
       </tr>
-      {items.map((item, idx) => (
+      {filterInStockOnly.map((item, idx) => (
         <tr key={idx}>
           <td>{item.name}</td>
           <td>{item.price}</td>

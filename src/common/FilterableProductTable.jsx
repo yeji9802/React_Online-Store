@@ -53,7 +53,7 @@ const FilterableProductTable = () => {
   return (
     <>
       <SearchBar filter={filter} updateFilter={updateFilter} />
-      <ProductTable products={datas}/>
+      <ProductTable products={datas} filter={filter} />
     </>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import ProductItem from "./ProductItem";
 
 const ProductTable = (props) => {
-  const { products } = props;
+  const { products, filter } = props;
 
   const productCategory = products.reduce((acc, cur) => {
     if (acc.hasOwnProperty(cur.category)) {
@@ -30,7 +30,12 @@ const ProductTable = (props) => {
       </thead>
       <tbody>
         {keys.map((key, idx) => (
-          <ProductItem key={idx} category={key} items={productCategory[key]} />
+          <ProductItem
+            key={idx}
+            category={key}
+            items={productCategory[key]}
+            inStockOnly={filter.inStockOnly}
+          />
         ))}
       </tbody>
     </table>
