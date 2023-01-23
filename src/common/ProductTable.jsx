@@ -4,7 +4,10 @@ import ProductItem from "./ProductItem";
 const ProductTable = (props) => {
   const { products, filter } = props;
 
-  const productCategory = products.reduce((acc, cur) => {
+  const filterText = products.filter((product) => product.name === filter.text);
+  const filterTextItem = filterText.length > 0 ? filterText : products;
+
+  const productCategory = filterTextItem.reduce((acc, cur) => {
     if (acc.hasOwnProperty(cur.category)) {
       return {
         ...acc,
