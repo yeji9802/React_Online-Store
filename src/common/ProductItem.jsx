@@ -1,15 +1,19 @@
 import React from "react";
 
-const ProductItem = () => {
+const ProductItem = (props) => {
+  const { category, items } = props;
+
   return (
     <>
       <tr>
-        <td>Sporting Goods</td>
+        <td>{category}</td>
       </tr>
-      <tr>
-        <td>Football</td>
-        <td>$49.99</td>
-      </tr>
+      {items.map((item, idx) => (
+        <tr key={idx}>
+          <td>{item.name}</td>
+          <td>{item.price}</td>
+        </tr>
+      ))}
     </>
   );
 };
